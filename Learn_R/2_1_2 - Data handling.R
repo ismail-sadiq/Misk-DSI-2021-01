@@ -113,7 +113,7 @@ sum(c(3,7,1))
 # log, [0,1], z-scores, sqrt, exponents
 # subtract background
 # +, -, /, ...
-1 input (operator) -> 1 transformed output
+# 1 input (operator) -> 1 transformed output
 34 + 6
 
 # Exercise: Are these transformation or aggregation?
@@ -300,21 +300,45 @@ foo_df
 
 # How can you call each variable (i.e. column) by name:
 # Note it will return a vector
-
+foo_df$healthy
+# getthis <- "healthy"
+# foo_df[getthis]
 
 # Basic functions:
 # Display the structure of foo_df using a base R function:
-
+str(foo_df)
 # Now using a tidyverse function:
-
+glimpse(foo_df)
 
 # Can you get a short summary of every variable with one command?
-
+summary(foo_df)
+# foo_df %>% 
+#   summarise_all(~ typeof(.))
+# sapply(foo_df, typeof)
 
 # Can you print out the number of rows & columns?
-
+dim(foo_df)
 
 # How about just the number of rows?
-
+nrow(foo_df)
+# NOT:
+# length(foo_df)
 
 # How about just the number of columns? 
+ncol(foo_df)
+
+
+library(RColorBrewer)
+
+library("Biobase")
+
+
+library(datasets)
+data(faithful)
+faithful_lm <- lm(eruptions ~ waiting, data = faithful)
+faithful_lm$coefficients
+predict(faithful_lm, data.frame(waiting <- 45))
+
+aa <- as.array(1:4)
+class(aa)
+typeof(aa)
