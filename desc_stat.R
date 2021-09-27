@@ -84,3 +84,7 @@ martian_tb %>%
 
 # diff(range(martian_tb$Height))
 # Extra challenge:  try to calculate some of these from scratch
+
+
+Plant_lm <- lm(weight ~ group, data = PlantGrowth)
+Plant_anova <- anova(Plant_lm)

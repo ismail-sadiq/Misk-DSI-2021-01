@@ -132,8 +132,26 @@ martian_tb %>%
   select(Height)
 
 # Exercise 9.11 (Transformations and tests)
-# - In the Statistical Literacy reference material, we described a scenarion where each Martians fastest time to ran 100 meters was measured, first on Mars and then on Earth. Thus, the data is paired, the same individual was measured before and after a treatment was given (here, changing planets).
+# - In the Statistical Literacy reference material, we described a scenario where each Martians fastest time to ran 100 meters was measured, 
+# first on Mars and then on Earth. Thus, the data is paired, the same individual was measured before and after a treatment was given (here, changing planets).
 # Calculate a paired two-sample t-test when using speed described by weight.
+
+test1 <- t.test(Site_I$Speed.Mars, Site_I$Speed.Earth, paired = TRUE)
+test1
+
 # Calculate the difference in running time between the two locations for each Martian
 # Use this variable to perform a 1-sample t-test using t.test()
+
+# Avoid just having random vectors in your environment
+# difference <- Site_I$Speed.Earth - Site_I$Speed.Mars
+# difference
+
+# Better, have it as a variable in your data.frame:
+Site_I %>% 
+  mutate(diff = Speed.Earth - Speed.Mars) -> Site_I
+
+# Use this variable to perform a 1-sample t-test using
+t.test(Site_I$diff)           
+
+# The same results!
 
