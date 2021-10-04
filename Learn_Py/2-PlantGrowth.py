@@ -1,19 +1,17 @@
 ## PlantGrowth data set in Python
 
 # import an entire library
-import math # Functions beyond the basic maths
+import math  # Functions beyond the basic maths
 
+import matplotlib.pyplot as plt  # Low level plotting
+import numpy as np  # Array and numerical processing
 # Import an entire library and give it an alias
-import pandas as pd # For DataFrame and handling
-import numpy as np # Array and numerical processing
-import matplotlib.pyplot as plt # Low level plotting
-import seaborn as sns # High level Plotting
-import statsmodels.api as sm # Modeling, e.g. ANOVA
-
+import pandas as pd  # For DataFrame and handling
+import seaborn as sns  # High level Plotting
+import statsmodels.api as sm  # Modeling, e.g. ANOVA
 # Import only specific modules from a library
 # we'll use this for the t-test function
 from scipy import stats
-
 # Import only specific functions from a library 
 # ols is for ordinary least squares
 from statsmodels.formula.api import ols
